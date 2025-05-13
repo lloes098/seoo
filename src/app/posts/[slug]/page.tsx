@@ -6,7 +6,6 @@ type Props = {
   params: {
     slug: string
   }
-  searchParams: { [key: string]: string | string[] | undefined }
 }
 
 async function getPost(slug: string) {
@@ -60,7 +59,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 }
 
-export default async function PostPage({ params, searchParams }: Props) {
+export default async function PostPage({ params }: Props) {
   const post = await getPost(params.slug)
   
   if (!post) {
